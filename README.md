@@ -32,16 +32,16 @@ yarn
 
 ## Running
 
-Run eslint
+Run tslint
 
 ```shell
-yarn eslint
+yarn tslint
 ```
 
-Run eslint --fix
+Run tslint --fix
 
 ```shell
-yarn eslint-fix
+yarn tslint-fix
 ```
 
 Start project
