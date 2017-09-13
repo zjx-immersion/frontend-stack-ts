@@ -132,6 +132,7 @@ module.exports = {
           /\.(js|jsx)$/,
           /\.(ts|tsx)$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -211,6 +212,28 @@ module.exports = {
         ),
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader",
+          }, {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+              modules: true,
+            },
+          }, {
+            loader: "sass-loader",
+            options: {
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true,
+            },
+          }
+        ]
+      }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
     ],
